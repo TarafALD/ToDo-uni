@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap');
+ 
+        :root{
+            --first-color: #7D476C;
+            --bg-color: #DDDDDD;
+            --white-color: #FFFFFF;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: var(--bg-color);  
+        }
+        .form-container{
+            position: relative;
+            width: 350px;
+            height: 700px;
+            background: var(--white-color);
+            border-radius: 30px;
+            box-shadow: 0px 5px 30px rgba(0, 0 ,0 , 0.1);
+            overflow:hidden;
+        }
+        .fluid-container{
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        .fluid-container .fluid-1{
+            position: absolute;
+            top: -55px;
+            left: -50px;
+            width: 330px;
+            transform: rotate(90deg) scale(1);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+      <div class="fluid-container">
+        <img src="./img/fluid-1.svg" id="fluid" class="fluid-1">
+      </div>
+    </div>
+</body>
+<script>
+    const loginBtn = document.querySelector("#login-btn");
+    const registerBtn = document.querySelector("#register-btn");
+    const loginIconBtn = document.querySelector("#login-icon-btn");
+    const registerIconBtn = document.querySelector("#register-icon-btn");
+    
+    const loginForm = document.querySelector(".login-container");
+    const registerForm = document.querySelector(".register-container");
+    
+    const fluid = document.querySelector("#fluid");
+    </script>
+</html>
