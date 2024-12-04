@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap');
+:root{
+    --first-color: rgb(125, 71, 108);
+    --bg-color: #ffeeee;
+    --white-color: #ffffff;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: var(--bg-color);  
+}
+.form-container{
+    position: relative;
+    width: 350px;
+    height: 600px;
+    background: var(--white-color);
+    border-radius: 30px;
+    box-shadow: 0px 5px 30px rgba(0, 0 ,0 , 0.1);
+    overflow:hidden;
+}
+.fluid-container{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.fluid-container .fluid-1{
+    position: absolute;
+    top: -65px;
+    left: -50px;
+    width: 330px;
+    transform: rotate(90deg) scale(1);
+    z-index: 1;
+}
+/* login*/
+.login-container, .register-container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 650px;
+    padding: 30px;
+    transition:  1s;
+    transition-delay: 800ms;
+}
+/* register*/
+.register-container{
+    left: 100%;
+
+}
+.form-icon, .form-title, .input-box{
+    z-index: 5;
+}
+.form-icon{
+    display: flex;
+    justify-content: space-between;
+}
+.form-icon i{
+    font-size: 26px;
+    cursor: pointer;
+}
+.form-icon .icon-1{
+    color: var(--white-color);
+
+}
+.form-icon .icon-2{
+    color:  rgb(125, 71, 108);
+    
+}
+.form-title{
+    font-size:23px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #ffffff;
+
+}
+.input-box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+.input-field{
+    font-size: 16px;
+    width: 100%;
+    height: 50px;
+    padding-top: 10px;
+    background:transparent;
+    border: none;
+    border-bottom: 1px solid var(--first-color);
+    outline: none;
+}
+.input-field:focus, .input-field:valid{
+    border-bottom: 2px solid var(--first-color);
+}
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-weight: 500;
+    color: var(--first-color) ;
+    transition: all .3s ease;
+
+}
+.input-field:focus ~ label, .input-field:valid ~ label{
+    top: -5%;
+    transform: translateY(-15%);
+    font-size: 14px;
+
+}
+.input-submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    height: 50px;
+    font-size: 15px;
+    background-color: var(--first-color);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: .3s;
+
+}
+.bx-arrow-back{
+    transform: rotate(180deg);
+
+}
+.input-submit:hover{
+    gap: 15px;
+}
+
+.form-bottom-link { 
+    margin-bottom: 15% ;
+}
+.form-bottom-link a{ 
+    font-weight: 500;
+    color: var(--first-color);
+}
+
+/* fluid animate*/
+.fluid-1.fluid-animate{
+animation: scale 0.8s ease alternate 2;
+z-index: 100;
+}
+
+@keyframes scale{
+    from{
+        transform: rotate(90deg) scale(1);
+    }
+    to{
+        transform: rotate(90deg) scale(6);
+    }
+
+}

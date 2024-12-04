@@ -5,55 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <style>
-       @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap');
+    <link rel="stylesheet" href="homepage.css">
  
-        :root{
-            --first-color: #7D476C;
-            --bg-color: #DDDDDD;
-            --white-color: #FFFFFF;
-        }
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
-        }
-        body{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background: var(--bg-color);  
-        }
-        .form-container{
-            position: relative;
-            width: 350px;
-            height: 700px;
-            background: var(--white-color);
-            border-radius: 30px;
-            box-shadow: 0px 5px 30px rgba(0, 0 ,0 , 0.1);
-            overflow:hidden;
-        }
-        .fluid-container{
-            position: relative;
-            top: 0;
-            left: 0;
-        }
-        .fluid-container .fluid-1{
-            position: absolute;
-            top: -55px;
-            left: -50px;
-            width: 330px;
-            transform: rotate(90deg) scale(1);
-            z-index: 1;
-        }
-    </style>
 </head>
 <body>
     <div class="form-container">
       <div class="fluid-container">
         <img src="./img/fluid-1.svg" id="fluid" class="fluid-1">
+
+        <!-- login form-->
+         <div class="login-container">
+            <div class="form-icon">
+                <i class="bx bx-log-in-circle icon-1"></i>
+                <i class="bx bx-user-plus icon-2" id="register-icon-btn"></i>
+            </div>
+            <div class="form-title">
+                <span>Hello!</span>
+            </div>
+            <div>
+                <form>
+                <div class="input-box">
+                    <input type="text" id="email" class="input-field"  autocomplete="off" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="password" class="input-field"  autocomplete="off" required>
+                    <label for="password">Password</label>
+                </div>
+                
+
+        
+            </div>
+            <div class="input-box">
+                <button class="input-submit">
+                    <span>Sign in</span><i class="bx bx-arrow-back"></i>
+                </button>
+                
+            </div>
+                </form>
+                <div class="form-bottom-link">
+                    <a href="#" id="register-btn">Sign Up</a>
+                </div>
+         </div>
+      </div>
+          
+           <!-- register form-->
+             <div class="register-container">
+                <div class="form-icon">
+
+                    <i class="bx bx-user-plus icon-1"></i>
+                    <i class="bx bx-log-in-circle icon-2" id="login-icon-btn"></i>
+                    
+                </div>
+                <div class="form-title">
+                    <span>Create Account </span>
+                </div>
+                <div>
+                    <form>
+                    <div class="input-box">
+                        <input type="text" id="reg-email" class="input-field"  autocomplete="off" required>
+                        <label for="reg-email">Email</label> 
+                    </div>
+                    <div class="input-box">
+                        <input type="password" id="reg-password" class="input-field"  autocomplete="off" required>
+                        <label for="reg-password">Password</label>
+                    </div>
+    
+            
+                </div>
+                <div class="input-box">
+                    <button class="input-submit">
+                        <span>Sign Up</span><i class="bx bx-arrow-back"></i>
+                    </button>
+                    </form>
+                </div>
+                    <div class="form-bottom-link">
+                        <a href="#" id="login-btn">Sign In</a>
+                    </div>
+             </div>
+                
       </div>
     </div>
 </body>
@@ -67,5 +97,28 @@
     const registerForm = document.querySelector(".register-container");
     
     const fluid = document.querySelector("#fluid");
+
+    function viewLogin(){
+        loginForm.style.left=0;
+        registerForm.style.left="100%";
+
+        fluid.classList.add("fluid-animate");
+    }
+    function viewRegister(){
+        loginForm.style.left="-100%";
+        registerForm.style.left="0";
+        fluid.classList.add("fluid-animate");
+    }
+
+    registerBtn.addEventListener('click', viewRegister);
+    loginBtn.addEventListener('click', viewLogin);
+
+    
+    registerIconBtn.addEventListener('click', viewRegister);
+    loginIconBtn.addEventListener('click', viewLogin);
+
+    fluid.addEventListener('animationend', ()=>{
+        fluid.classList.remove("fluid-animate");
+    });
     </script>
 </html>
